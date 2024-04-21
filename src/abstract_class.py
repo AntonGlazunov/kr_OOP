@@ -1,8 +1,14 @@
-from abc import ABC, abstractmethod
+
+from abc import ABC
 
 
-class Requests(ABC):
-    pass
+class Parser(ABC):
+
+    def __init__(self, file_worker):
+        self.file_worker = file_worker.split("/")
+
+    def load_vacancies(self, keyword):
+        pass
 
 
 class Communication(ABC):

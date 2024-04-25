@@ -1,5 +1,6 @@
 import requests
-
+import json
+import os
 from src.abstract_class import Parser
 
 
@@ -24,17 +25,8 @@ class HH(Parser):
             self.vacancies.extend(vacancies)
             self.params['page'] += 1
 
-    # def write_vacancies(self):
-    #     with open(os.path.join(*self.file_worker), 'w', encoding="utf-8") as file:
-    #         file.write(json.dumps(self.vacancies))
+    def write_vacancies(self):
+        with open(os.path.join(*self.file_worker), 'w', encoding="utf-8") as file:
+            file.write(json.dumps(self.vacancies))
 
 
-# a = HH("../date/file_worker")
-# a.load_vacancies("Менеджер по продажам автомобилей")
-# a.write_vacancies()
-# def read_file():
-#     with open(os.path.join("..", "date", "file_worker"), 'r', encoding="utf-8") as file:
-#         file_1 = json.loads(file.read())
-#         return file_1
-
-# print(read_file())

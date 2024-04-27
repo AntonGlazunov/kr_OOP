@@ -2,24 +2,18 @@ from src.hh import HH
 from src.vacancy import Vacancy
 
 
-def search_vacancies():
+def search_vacancies(message, user_quantity):
     """
     Функция для поиска вакансий по запросу
     """
-    print("Введите запрос")
-    message = input()
-    print("Введите колличество требуемых вакансий")
-    user_quantity = input()
     json_vacancies = HH(user_quantity)
     json_vacancies.load_vacancies(message)
     return json_vacancies.vacancies
 
 
-def top_vacancies():
+def top_vacancies(number_vacancies):
     """
     Функция для возвращает топ N вакансий
     """
-    print("Введите колличество вакансий")
-    number_vacancies = int(input())
     Vacancy.sort_vacancy_salary_min()
     return Vacancy.list_object_vacancy[:number_vacancies]

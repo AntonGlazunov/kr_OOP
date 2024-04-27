@@ -5,8 +5,8 @@ from src.hh import HH
 
 @pytest.fixture
 def add_object_hh():
-    test_hh = HH()
-    test_hh.load_vacancies("Python", 1)
+    test_hh = HH(1)
+    test_hh.load_vacancies("Python")
     return test_hh
 
 

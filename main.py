@@ -1,8 +1,7 @@
-from src.hh import HH
-from src.vacancy import Vacancy
 from src.communication_vacancy_JSON import CommunicationVacancyJson
 from src.utils import search_vacancies
 from src.utils import top_vacancies
+from src.vacancy import Vacancy
 
 vacancy_object_list = []
 print("Введите путь хранения файла с вакансиями через '/'")
@@ -18,11 +17,3 @@ user_top = top_vacancies()
 
 for i in user_top:
     print(str(i))
-
-
-
-
-
-
-
-

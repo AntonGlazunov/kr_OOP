@@ -2,12 +2,14 @@ from abc import ABC
 
 
 class Parser(ABC):
+    "Абстрактный клас для получения данных по API"
 
     def load_vacancies(self, keyword):
         pass
 
 
 class Communication(ABC):
+    "Абстрактный класс для взоимодействия с файлом JSON"
 
     def __init__(self, file_vacancy, list_vacancy):
         self.file_vacancy = file_vacancy.split("/")

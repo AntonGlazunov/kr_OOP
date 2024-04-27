@@ -1,10 +1,10 @@
 import requests
-import json
-import os
+
 from src.abstract_class import Parser
 
 
 class HH(Parser):
+    """Класс для загрузки данных с HH"""
 
     def __init__(self):
         self.url = 'https://api.hh.ru/vacancies'

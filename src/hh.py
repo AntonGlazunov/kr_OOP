@@ -6,10 +6,10 @@ from src.abstract_class import Parser
 class HH(Parser):
     """Класс для загрузки данных с HH"""
 
-    def __init__(self):
+    def __init__(self, user_quantity):
         self.url = 'https://api.hh.ru/vacancies'
         self.headers = {'User-Agent': 'HH-User-Agent'}
-        self.params = {'text': '', 'page': 0, 'per_page': 10, "area": "113"}
+        self.params = {'text': '', 'page': 0, 'per_page': user_quantity, "area": "113"}
         self.vacancies = []
 
     def load_vacancies(self, keyword):

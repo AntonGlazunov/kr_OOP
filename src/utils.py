@@ -8,7 +8,9 @@ def search_vacancies():
     """
     print("Введите запрос")
     message = input()
-    json_vacancies = HH()
+    print("Введите колличество требуемых вакансий")
+    user_quantity = input()
+    json_vacancies = HH(user_quantity)
     json_vacancies.load_vacancies(message)
     return json_vacancies.vacancies
 

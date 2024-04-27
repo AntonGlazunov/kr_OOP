@@ -1,4 +1,4 @@
-from src.communication_vacancy_JSON import CommunicationVacancyJson
+from src.communication_vacancy_json import CommunicationVacancyJson
 from src.utils import search_vacancies
 from src.utils import top_vacancies
 from src.vacancy import Vacancy

@@ -3,9 +3,6 @@ from abc import ABC
 
 class Parser(ABC):
 
-    def __init__(self):
-        pass
-
     def load_vacancies(self, keyword):
         pass
 

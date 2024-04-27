@@ -5,6 +5,7 @@ class Vacancy:
     alternate_url: str
     requirement: str
     responsibility: str
+    list_object_vacancy = []
 
     def __init__(self, name, type_, alternate_url, requirement, responsibility, salary=None):
         self.name = name
@@ -13,26 +14,28 @@ class Vacancy:
         self.requirement = requirement
         self.responsibility = responsibility
         if salary is None:
-            self.salary = "Зарплата не указана"
-        elif salary["from"] is None:
-            self.salary = salary.get("to")
+            self.salary = 0
+            self.salary_min = 0
+            self.salary_max = 0
         else:
-            self.salary = salary.get("from")
-
-    def __gt__(self, other):
-        try:
-            if self.salary == "Зарплата не указана" and other.salary == "Зарплата не указана":
-                raise ValueError
-            elif self.salary == "Зарплата не указана":
-                return other
-            elif other.salary == "Зарплата не указана":
-                return self
-            elif self.salary > other.salary:
-                return self
+            self.salary = salary
+            if self.salary.get("from") is not None:
+                self.salary_min = salary.get("from")
             else:
-                return other
-        except ValueError:
-            return "У предложенных вакансий не указана зарплата"
+                self.salary_min = 0
+            if self.salary.get("to") is not None:
+                self.salary_max = salary.get("to")
+            else:
+                self.salary_max = 0
+        Vacancy.list_object_vacancy.append(self)
+
+    @classmethod
+    def sort_vacancy_salary_min(cls):
+        Vacancy.list_object_vacancy.sort(key=lambda sort_vacancy: sort_vacancy.salary_min, reverse=True)
+
+    @classmethod
+    def sort_vacancy_salary_max(cls):
+        Vacancy.list_object_vacancy.sort(key=lambda sort_vacancy: sort_vacancy.salary_max, reverse=True)
 
     def __str__(self):
         return f"Вакансия: {self.name}, ссылка: {self.alternate_url}, предлагаемая зарплата: {self.salary}"

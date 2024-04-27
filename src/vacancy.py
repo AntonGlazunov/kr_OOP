@@ -38,6 +38,6 @@ class Vacancy:
         Vacancy.list_object_vacancy.sort(key=lambda sort_vacancy: sort_vacancy.salary_max, reverse=True)
 
     def __str__(self):
-        return f"Вакансия: {self.name}, ссылка: {self.alternate_url}, предлагаемая зарплата: {self.salary}"
+        return f"Вакансия: {self.name}, ссылка: {self.alternate_url}, предлагаемая зарплата: от {self.salary_min} рублей"
 
 

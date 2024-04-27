@@ -1,19 +1,25 @@
 from src.hh import HH
 from src.vacancy import Vacancy
 from src.communication_vacancy_JSON import CommunicationVacancyJson
+from src.utils import search_vacancies
+from src.utils import top_vacancies
 
-a = HH()
-a.load_vacancies("Python")
-j = a.vacancies
-b = CommunicationVacancyJson("date/file_worker", a.vacancies)
-b.write_vacancy()
-sss = []
-for i in b.sort_list_vacancy():
-    sss.append(Vacancy(**i))
+vacancy_object_list = []
+print("Введите путь хранения файла с вакансиями через '/'")
+user_path = input()
+user_vacancy = CommunicationVacancyJson(user_path, search_vacancies())
 
-Vacancy.sort_vacancy_salary()
-for n in Vacancy.list_object_vacancy:
-    print(n.salary_min)
+user_vacancy.write_vacancy()
+
+for vacancy in user_vacancy.sort_list_vacancy():
+    vacancy_object_list.append(Vacancy(**vacancy))
+
+user_top = top_vacancies()
+
+for i in user_top:
+    print(str(i))
+
+
 
 
 

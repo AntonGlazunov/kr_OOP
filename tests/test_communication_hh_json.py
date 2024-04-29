@@ -1,6 +1,6 @@
 import pytest
 
-from src.communication_vacancy_json import CommunicationVacancyJson
+from src.communication_hh_json import CommunicationVacancyJson
 from src.hh import HH
 
 

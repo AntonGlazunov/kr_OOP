@@ -13,8 +13,11 @@ class CommunicationVacancyJson(Communication):
 
     def write_vacancy(self):
         """Запись файла с вакансиями"""
-        with open(os.path.join(*self.file_vacancy), 'w', encoding="utf-8") as file:
-            file.write(json.dumps(self.list_vacancy))
+        try:
+            with open(os.path.join(*self.file_vacancy), 'w', encoding="utf-8") as file:
+                file.write(json.dumps(self.list_vacancy))
+        except FileNotFoundError:
+            print("Файл не найден, проверьте правильнность ввода пути")
 
     def read_file_worker(self):
         """Чтение файла с вакансиями"""

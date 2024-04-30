@@ -15,7 +15,7 @@ class CommunicationVacancyJson(Communication):
         """Запись файла с вакансиями"""
         try:
             with open(os.path.join(*self.file_vacancy), 'w', encoding="utf-8") as file:
-                file.write(json.dumps(self.list_vacancy))
+                file.write(json.dumps(self.list_vacancy, indent=2, ensure_ascii=False))
         except FileNotFoundError:
             print("Файл не найден, проверьте правильнность ввода пути")
 
